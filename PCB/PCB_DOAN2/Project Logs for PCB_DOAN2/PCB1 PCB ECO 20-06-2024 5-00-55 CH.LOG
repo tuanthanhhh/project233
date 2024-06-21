@@ -1,0 +1,5 @@
+Added Pin To Net: NetName=RESET Pin=U2-7
+Added Member To Class: ClassName=schematic Member=Component C13 104
+Added Member To Class: ClassName=schematic Member=Component C15 104
+Added Member To Class: ClassName=schematic Member=Component C17 20pF
+Added Room: Name=schematic

@@ -1,0 +1,33 @@
+Change Component Footprint: Designator=C11 Old Footprint=tu gom New Footprint=tu 0805
+Change Component Footprint: Designator=C12 Old Footprint=tu gom New Footprint=tu 0805
+Change Component Footprint: Designator=C18 Old Footprint=tu gom New Footprint=tu 0805
+Change Component Footprint: Designator=C19 Old Footprint=tu gom New Footprint=tu 0805
+Change component parameters: Designator = "C11" ("C11"); Footprint = "tu gom"; UniqueID = "\IOIZYJVF" ("\IOIZYJVF")
+Change component parameters (AddParameter): Name = "Chung_Loai"; Value = "Dán"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Don_Vi"; Value = "Con"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Kieu_Chan"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ma_Hang"; Value = "MH004558"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "So_Chan"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ten_Linh_Kien"; Value = "T? 0805 20P 10% 50V"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C12" ("C12"); Footprint = "tu gom"; UniqueID = "\OVRRAEZP" ("\OVRRAEZP")
+Change component parameters (AddParameter): Name = "Chung_Loai"; Value = "Dán"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Don_Vi"; Value = "Con"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Kieu_Chan"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ma_Hang"; Value = "MH004558"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "So_Chan"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ten_Linh_Kien"; Value = "T? 0805 20P 10% 50V"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C18" ("C18"); Footprint = "tu gom"; UniqueID = "\UEFRRCKU" ("\UEFRRCKU")
+Change component parameters (AddParameter): Name = "Chung_Loai"; Value = "Dán"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Don_Vi"; Value = "Con"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Kieu_Chan"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ma_Hang"; Value = "MH004558"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "So_Chan"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ten_Linh_Kien"; Value = "T? 0805 20P 10% 50V"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C19" ("C19"); Footprint = "tu gom"; UniqueID = "\JNQWUSQL" ("\JNQWUSQL")
+Change component parameters (AddParameter): Name = "Chung_Loai"; Value = "Dán"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Don_Vi"; Value = "Con"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Kieu_Chan"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ma_Hang"; Value = "MH004558"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "So_Chan"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Ten_Linh_Kien"; Value = "T? 0805 20P 10% 50V"; VariantName = "[No Variations]"
+Added Room: Name=schematic
