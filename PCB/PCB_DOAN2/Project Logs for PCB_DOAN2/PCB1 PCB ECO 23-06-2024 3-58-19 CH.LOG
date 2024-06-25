@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=SCL Pin=JP2-3
+Removed Pin From Net: NetName=SDA Pin=JP2-4
+Added Pin To Net: NetName=SDA Pin=JP2-3
+Added Pin To Net: NetName=SCL Pin=JP2-4
+Added Member To Class: ClassName=schematic Member=Component C2 104
+Added Member To Class: ClassName=schematic Member=Component C4 104
+Added Member To Class: ClassName=schematic Member=Component C5 106
+Added Member To Class: ClassName=schematic Member=Component C11 106
+Added Member To Class: ClassName=schematic Member=Component C12 104
+Added Member To Class: ClassName=schematic Member=Component C13 20pF
+Added Member To Class: ClassName=schematic Member=Component C14 104
+Added Member To Class: ClassName=schematic Member=Component C17 104
+Added Member To Class: ClassName=schematic Member=Component JP2 LCD OLED
+Added Room: Name=schematic

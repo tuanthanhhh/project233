@@ -1,0 +1,4 @@
+Added Component: Designator=P1(18650_Lithium)
+Added Pin To Net: NetName=NetD2_1 Pin=P1-1
+Added Pin To Net: NetName=GND Pin=P1-2
+Added Room: Name=schematic
