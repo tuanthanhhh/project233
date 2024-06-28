@@ -1,0 +1,43 @@
+Added Component: Designator=C22(tu 0603)
+Add component (AddParameter): Name = "Chung_Loai"; Value = "Dán"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Don_Vi"; Value = "Con"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Kieu_Chan"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Ma_Hang"; Value = "MH004568"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "So_Chan"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Ten_Linh_Kien"; Value = "T? 0603 104-100nF 10% 50V"; VariantName = "[No Variations]"
+Added Component: Designator=C23(tu 0603)
+Add component (AddParameter): Name = "Chung_Loai"; Value = "Dán"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Don_Vi"; Value = "Con"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Kieu_Chan"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Ma_Hang"; Value = "MH004848"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "So_Chan"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Ten_Linh_Kien"; Value = "T? 0603-10uF 20% 16V"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C22-1
+Added Pin To Net: NetName=VCC3V3 Pin=C22-2
+Added Pin To Net: NetName=GND Pin=C23-1
+Added Pin To Net: NetName=VCC3V3 Pin=C23-2
+Added Member To Class: ClassName=schematic Member=Component C2 105
+Added Member To Class: ClassName=schematic Member=Component C5 106
+Added Member To Class: ClassName=schematic Member=Component C6 104
+Added Member To Class: ClassName=schematic Member=Component C7 106
+Added Member To Class: ClassName=schematic Member=Component C8 105
+Added Member To Class: ClassName=schematic Member=Component C9 104
+Added Member To Class: ClassName=schematic Member=Component C10 22pF
+Added Member To Class: ClassName=schematic Member=Component C12 104
+Added Member To Class: ClassName=schematic Member=Component C13 106
+Added Member To Class: ClassName=schematic Member=Component C15 20pF
+Added Member To Class: ClassName=schematic Member=Component C16 104
+Added Member To Class: ClassName=schematic Member=Component C18 104
+Added Member To Class: ClassName=schematic Member=Component C19 104
+Added Member To Class: ClassName=schematic Member=Component C21 104
+Added Member To Class: ClassName=schematic Member=Component C22 104
+Added Member To Class: ClassName=schematic Member=Component C23 106
+Added Member To Class: ClassName=schematic Member=Component R1 510R
+Added Member To Class: ClassName=schematic Member=Component R4 10k
+Added Member To Class: ClassName=schematic Member=Component R6 1k
+Added Member To Class: ClassName=schematic Member=Component R8 1k
+Added Member To Class: ClassName=schematic Member=Component R10 1k
+Added Member To Class: ClassName=schematic Member=Component R12 20R
+Added Member To Class: ClassName=schematic Member=Component R14 1M
+Added Member To Class: ClassName=schematic Member=Component R16 100k
+Added Room: Name=schematic
