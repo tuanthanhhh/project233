@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=GND Pin=R13-2
+Removed Pin From Net: NetName=PC13 Pin=R14-2
+Removed Member From Class: ClassName=schematic Member=R13
+Removed Member From Class: ClassName=schematic Member=R14
+Added Pin To Net: NetName=GND Pin=L1-2
+Added Pin To Net: NetName=PC13 Pin=L2-2
