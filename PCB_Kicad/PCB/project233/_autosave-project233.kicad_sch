@@ -1,0 +1,127 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "a9a55588-2187-4bc3-b43e-c4b5b08bd1ab")
+	(paper "A4")
+	(lib_symbols)
+	(sheet
+		(at 122.428 73.66)
+		(size 40.386 50.292)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "543a566d-0d31-4178-abeb-140a350ff13a")
+		(property "Sheetname" "MCU"
+			(at 122.428 72.9484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "MCU.kicad_sch"
+			(at 122.428 124.5366 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "project233"
+				(path "/a9a55588-2187-4bc3-b43e-c4b5b08bd1ab"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 183.134 85.852)
+		(size 38.1 26.416)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "c0533110-e4c7-43cb-ae4f-52f25aca33c7")
+		(property "Sheetname" "SENS"
+			(at 183.134 85.1404 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "SENS.kicad_sch"
+			(at 183.134 112.8526 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "project233"
+				(path "/a9a55588-2187-4bc3-b43e-c4b5b08bd1ab"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 59.436 86.614)
+		(size 33.02 28.702)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "d41ed68b-c316-4685-91e6-9aebdeafe7ff")
+		(property "Sheetname" "POWER"
+			(at 59.436 85.9024 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "POWER.kicad_sch"
+			(at 59.436 115.9006 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "project233"
+				(path "/a9a55588-2187-4bc3-b43e-c4b5b08bd1ab"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+)
