@@ -1,0 +1,9 @@
+G04:AMPARAMS|DCode=37|XSize=33.1mil|YSize=15.7mil|CornerRadius=3.9mil|HoleSize=0mil|Usage=FLASHONLY|Rotation=270.000|XOffset=0mil|YOffset=0mil|HoleType=Round|Shape=RoundedRectangle|*
+%AMROUNDEDRECTD37*
+21,1,0.0331,0.0079,0,0,270.0*
+21,1,0.0252,0.0157,0,0,270.0*
+1,1,0.0079,-0.0039,-0.0126*
+1,1,0.0079,-0.0039,0.0126*
+1,1,0.0079,0.0039,0.0126*
+1,1,0.0079,0.0039,-0.0126*
+%
