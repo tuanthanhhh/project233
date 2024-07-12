@@ -10,10 +10,8 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include Drivers/STM32F1xx_HAL_Driver/Src/subdir.mk
--include Core/max30102/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
--include Core/OLED/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -62,8 +60,8 @@ all: main-build
 main-build: DOAN_2.elf secondary-outputs
 
 # Tool invocations
-DOAN_2.elf DOAN_2.map: $(OBJS) $(USER_OBJS) C:\Users\LE\ TUAN\ THANH\Downloads\tai\ lieu\ĐHBK\Năm\ 4\233\Project\firmware\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "DOAN_2.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\LE TUAN THANH\Downloads\tai lieu\ĐHBK\Năm 4\233\Project\firmware\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DOAN_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+DOAN_2.elf DOAN_2.map: $(OBJS) $(USER_OBJS) C:\Users\LE\ TUAN\ THANH\Desktop\doan\project233\firmware\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "DOAN_2.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\LE TUAN THANH\Desktop\doan\project233\firmware\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DOAN_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

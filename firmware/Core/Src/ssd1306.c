@@ -47,7 +47,7 @@
    ----------------------------------------------------------------------
 */
 
-#include "ssd1306.h"
+#include <Src/ssd1306.h>
 #include "time.h"
 #include "stdio.h"
 

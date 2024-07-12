@@ -21,8 +21,12 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "max30102.h"
 #include <stdio.h>
+#include <Src/bitmaps.h>
+#include <Src/fonts.h>
+#include <Src/gifs.h>
+#include <Src/max30102.h>
+#include <Src/ssd1306.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -137,16 +141,61 @@ int main(void)
 
   uint8_t en_reg[2] = {0};
   max30102_read(&max30102, 0x00, en_reg, 1);
+  SSD1306_Init();
+  HAL_Delay(1000);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  if (max30102_has_interrupt(&max30102))
-	  {
-		  max30102_interrupt_handler(&max30102);
-	  }
+
+	    if (max30102_has_interrupt(&max30102))
+	    {
+	      max30102_interrupt_handler(&max30102);
+	      int test = max30102._red_samples;
+	      SSD1306_Clear();
+	      SSD1306_UpdateScreen();
+			SSD1306_Println("bpm = %d", test);
+			HAL_Delay(1000);
+	    }
+	    else
+	    {
+	    	SSD1306_GotoXY (0,0);
+	    		SSD1306_Puts ("Counter", &Font_11x18, 1);
+	    		SSD1306_GotoXY (10, 30);
+	    		SSD1306_Puts ("API!", &Font_11x18, 1);
+	    		SSD1306_UpdateScreen();
+	    		HAL_Delay(2000);
+	    		SSD1306_Counter(5);
+
+	    		SSD1306_Clear();
+	    		SSD1306_GotoXY (0,0);
+	    		SSD1306_Puts ("printf", &Font_11x18, 1);
+	    		SSD1306_GotoXY (10, 30);
+	    		SSD1306_Puts ("API!", &Font_11x18, 1);
+	    		SSD1306_UpdateScreen();
+	    		HAL_Delay(2000);
+	    		SSD1306_Clear();
+	    		for (uint8_t i = 0; i < 5; i++)
+	    		{
+	    			SSD1306_Println("var1 = %i", i);
+	    			HAL_Delay(1000);
+	    			SSD1306_Println("var2 = %d", i*3);
+	    			HAL_Delay(1000);
+	    			SSD1306_Println("var3 = %i", i*4);
+	    			HAL_Delay(1000);
+	    		}
+
+	    		SSD1306_Clear();
+	    		SSD1306_GotoXY (0,0);
+	    		SSD1306_Puts ("Show BMP", &Font_11x18, 1);
+	    		SSD1306_GotoXY (10, 30);
+	    		SSD1306_Puts ("API!", &Font_11x18, 1);
+	    		SSD1306_UpdateScreen();
+	    		HAL_Delay(2000);
+	    		SSD1306_ShowBitmap(beach);
+	    		HAL_Delay(4000);	    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -216,7 +265,7 @@ static void MX_I2C1_Init(void)
 
   /* USER CODE END I2C1_Init 1 */
   hi2c1.Instance = I2C1;
-  hi2c1.Init.ClockSpeed = 100000;
+  hi2c1.Init.ClockSpeed = 400000;
   hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
   hi2c1.Init.OwnAddress1 = 0;
   hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
@@ -316,16 +365,24 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(TEST_GPIO_Port, TEST_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : PC13 */
-  GPIO_InitStruct.Pin = GPIO_PIN_13;
+  /*Configure GPIO pin : TEST_Pin */
+  GPIO_InitStruct.Pin = TEST_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+  HAL_GPIO_Init(TEST_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PB9 */
+  GPIO_InitStruct.Pin = GPIO_PIN_9;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 /* USER CODE END MX_GPIO_Init_2 */
 }
 
