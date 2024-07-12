@@ -22,6 +22,8 @@
 #include "stm32f1xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "max30102.h"
+extern max30102_t max30102;
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
