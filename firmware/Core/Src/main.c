@@ -17,16 +17,16 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+#include <bitmaps.h>
+#include <fonts.h>
+#include <gifs.h>
+#include <max30102.h>
+#include <ssd1306.h>
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
-#include <Src/bitmaps.h>
-#include <Src/fonts.h>
-#include <Src/gifs.h>
-#include <Src/max30102.h>
-#include <Src/ssd1306.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/

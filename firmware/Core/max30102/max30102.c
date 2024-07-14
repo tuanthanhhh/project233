@@ -1,5 +1,5 @@
+#include <max30102.h>
 #include <stdio.h>
-#include <Src/max30102.h>
 
 #ifdef __cplusplus
 extern "C"

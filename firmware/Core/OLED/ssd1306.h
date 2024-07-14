@@ -58,7 +58,7 @@ extern C {
 /* stm32fxxx_hal.h */
 #include "stm32f1xx_hal.h"
 
-#include <Src/fonts.h>
+#include <fonts.h>
 
 #include "stdlib.h"
 #include "string.h"

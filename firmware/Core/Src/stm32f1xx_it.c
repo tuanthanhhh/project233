@@ -18,9 +18,9 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
+#include <max30102.h>
 #include "main.h"
 #include "stm32f1xx_it.h"
-#include "max30102.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 extern max30102_t max30102;

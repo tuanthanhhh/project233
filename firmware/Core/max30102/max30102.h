@@ -5,8 +5,8 @@
  *      Author: LE TUAN THANH
  */
 
-#ifndef SRC_MAX30102_H_
-#define SRC_MAX30102_H_
+#ifndef MAX30102_MAX30102_H_
+#define MAX30102_MAX30102_H_
 
 
 #include "main.h"
