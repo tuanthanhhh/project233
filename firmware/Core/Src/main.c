@@ -62,12 +62,17 @@ int __io_putchar(int ch)
   return ch;
 }
 
+
 // Override plot function
 void max30102_plot(uint32_t ir_sample, uint32_t red_sample)
 {
     // printf("ir:%u\n", ir_sample);                  // Print IR only
     // printf("r:%u\n", red_sample);                  // Print Red only
     printf("ir:%lu,r:%lu\n", ir_sample, red_sample);    // Print IR and Red
+    SSD1306_Clear();
+    SSD1306_UpdateScreen();
+    SSD1306_Println("ir sample = %lu", ir_sample);
+    HAL_Delay(1000);
 }
 // MAX30102 object
 max30102_t max30102;
@@ -159,11 +164,6 @@ int main(void)
 	    if (max30102_has_interrupt(&max30102))
 	    {
 	      max30102_interrupt_handler(&max30102);
-	      value = max30102._red_samples;
-	      SSD1306_Clear();
-	      SSD1306_UpdateScreen();
-	      SSD1306_Println("bpm = %u", *value);
-	      HAL_Delay(1000);
 	    }
 	    else
 	    {
