@@ -18,11 +18,11 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
+#include <max30102.h>
 #include "main.h"
 #include "stm32f1xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <max30102.h>
 extern max30102_t max30102;
 /* USER CODE END Includes */
 
@@ -200,15 +200,20 @@ void SysTick_Handler(void)
 /* please refer to the startup file (startup_stm32f1xx.s).                    */
 /******************************************************************************/
 
-/* USER CODE BEGIN 1 */
+/**
+  * @brief This function handles EXTI line2 interrupt.
+  */
 void EXTI2_IRQHandler(void)
 {
-    /* USER CODE BEGIN EXTI2_IRQ 0 */
-    max30102_on_interrupt(&max30102);
-    /* USER CODE END EXTI2_IRQn 0 */
-    /* USER CODE BEGIN EXTI2_IRQn 1 */
-    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_2);
-    /* USER CODE END EXTI2_IRQn 1 */
+  /* USER CODE BEGIN EXTI2_IRQn 0 */
+	max30102_on_interrupt(&max30102);
+  /* USER CODE END EXTI2_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(INT_Pin);
+  /* USER CODE BEGIN EXTI2_IRQn 1 */
+  /* USER CODE END EXTI2_IRQn 1 */
 }
+
+/* USER CODE BEGIN 1 */
+
 
 /* USER CODE END 1 */

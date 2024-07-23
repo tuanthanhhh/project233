@@ -69,10 +69,21 @@ void max30102_plot(uint32_t ir_sample, uint32_t red_sample)
     // printf("ir:%u\n", ir_sample);                  // Print IR only
     // printf("r:%u\n", red_sample);                  // Print Red only
     printf("ir:%lu,r:%lu\n", ir_sample, red_sample);    // Print IR and Red
-    SSD1306_Clear();
-    SSD1306_UpdateScreen();
-    SSD1306_Println("ir sample = %lu", ir_sample);
-    HAL_Delay(1000);
+
+    if(ir_sample < 50000)
+    {
+    	SSD1306_GotoXY (0,0);
+    	SSD1306_Puts ("No finger?", &Font_11x18, 1);
+    	SSD1306_GotoXY (0, 30);
+    	SSD1306_Puts (" ", &Font_11x18, 1);
+    	SSD1306_UpdateScreen();
+    }
+    else
+    {
+        SSD1306_Clear();
+        SSD1306_UpdateScreen();
+    	SSD1306_Println("%lu", ir_sample);
+    }
 }
 // MAX30102 object
 max30102_t max30102;
@@ -138,8 +149,8 @@ int main(void)
   max30102_set_led_pulse_width(&max30102, max30102_pw_16_bit);
   max30102_set_adc_resolution(&max30102, max30102_adc_2048);
   max30102_set_sampling_rate(&max30102, max30102_sr_800);
-  max30102_set_led_current_1(&max30102, 6.2);
-  max30102_set_led_current_2(&max30102, 6.2);
+  max30102_set_led_current_1(&max30102, 10);
+  max30102_set_led_current_2(&max30102, 10);
 
   // Enter SpO2 mode
   max30102_set_mode(&max30102, max30102_spo2);
@@ -159,49 +170,16 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  	 printf("hello");
 
 	    if (max30102_has_interrupt(&max30102))
 	    {
-	      max30102_interrupt_handler(&max30102);
+		      max30102_interrupt_handler(&max30102);
+		      HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
 	    }
 	    else
 	    {
-	    	SSD1306_GotoXY (0,0);
-	    		SSD1306_Puts ("Counter", &Font_11x18, 1);
-	    		SSD1306_GotoXY (10, 30);
-	    		SSD1306_Puts ("API!", &Font_11x18, 1);
-	    		SSD1306_UpdateScreen();
-	    		HAL_Delay(2000);
-	    		SSD1306_Counter(5);
 
-	    		SSD1306_Clear();
-	    		SSD1306_GotoXY (0,0);
-	    		SSD1306_Puts ("printf", &Font_11x18, 1);
-	    		SSD1306_GotoXY (10, 30);
-	    		SSD1306_Puts ("API!", &Font_11x18, 1);
-	    		SSD1306_UpdateScreen();
-	    		HAL_Delay(2000);
-	    		SSD1306_Clear();
-	    		for (uint8_t i = 0; i < 5; i++)
-	    		{
-	    			SSD1306_Println("var1 = %i", i);
-	    			HAL_Delay(1000);
-	    			SSD1306_Println("var2 = %d", i*3);
-	    			HAL_Delay(1000);
-	    			SSD1306_Println("var3 = %i", i*4);
-	    			HAL_Delay(1000);
-	    		}
-
-	    		SSD1306_Clear();
-	    		SSD1306_GotoXY (0,0);
-	    		SSD1306_Puts ("Show BMP", &Font_11x18, 1);
-	    		SSD1306_GotoXY (10, 30);
-	    		SSD1306_Puts ("API!", &Font_11x18, 1);
-	    		SSD1306_UpdateScreen();
-	    		HAL_Delay(2000);
-	    		SSD1306_ShowBitmap(beach);
-	    		HAL_Delay(4000);	    }
+	    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -441,13 +419,24 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-/* USER CODE BEGIN MX_GPIO_Init_2 */
+  /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI2_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI2_IRQn);
+
+/* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	if(GPIO_Pin == GPIO_PIN_2)
+	{
+		max30102_on_interrupt(&max30102);
+		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+		HAL_Delay(500);
+	}
+}
 
 /* USER CODE END 4 */
 

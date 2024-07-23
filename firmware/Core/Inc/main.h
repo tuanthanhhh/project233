@@ -63,6 +63,7 @@ void Error_Handler(void);
 #define TEST_GPIO_Port GPIOC
 #define INT_Pin GPIO_PIN_2
 #define INT_GPIO_Port GPIOA
+#define INT_EXTI_IRQn EXTI2_IRQn
 #define BUZZER_Pin GPIO_PIN_3
 #define BUZZER_GPIO_Port GPIOA
 

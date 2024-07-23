@@ -22,6 +22,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
+ ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
+ ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h \
@@ -29,7 +31,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  C:/Users/LE\ TUAN\ THANH/Desktop/doan/project233/firmware/Core/OLED/bitmaps.h \
  C:/Users/LE\ TUAN\ THANH/Desktop/doan/project233/firmware/Core/OLED/fonts.h \
  C:/Users/LE\ TUAN\ THANH/Desktop/doan/project233/firmware/Core/OLED/gifs.h \
- C:/Users/LE\ TUAN\ THANH/Desktop/doan/project233/firmware/Core/max30102/max30102.h \
+ C:/Users/LE\ TUAN\ THANH/Desktop/doan/project233/firmware/Core/Src/max30102.h \
  C:/Users/LE\ TUAN\ THANH/Desktop/doan/project233/firmware/Core/OLED/ssd1306.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
@@ -55,6 +57,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h:
@@ -62,5 +66,5 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 C:/Users/LE\ TUAN\ THANH/Desktop/doan/project233/firmware/Core/OLED/bitmaps.h:
 C:/Users/LE\ TUAN\ THANH/Desktop/doan/project233/firmware/Core/OLED/fonts.h:
 C:/Users/LE\ TUAN\ THANH/Desktop/doan/project233/firmware/Core/OLED/gifs.h:
-C:/Users/LE\ TUAN\ THANH/Desktop/doan/project233/firmware/Core/max30102/max30102.h:
+C:/Users/LE\ TUAN\ THANH/Desktop/doan/project233/firmware/Core/Src/max30102.h:
 C:/Users/LE\ TUAN\ THANH/Desktop/doan/project233/firmware/Core/OLED/ssd1306.h:
