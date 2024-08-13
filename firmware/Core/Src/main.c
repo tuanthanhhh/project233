@@ -171,15 +171,9 @@ int main(void)
   while (1)
   {
 
-	    if (max30102_has_interrupt(&max30102))
-	    {
-		      max30102_interrupt_handler(&max30102);
-		      HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-	    }
-	    else
-	    {
 
-	    }
+	  max30102_interrupt_handler(&max30102);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
