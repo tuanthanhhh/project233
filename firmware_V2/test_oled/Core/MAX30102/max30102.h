@@ -179,7 +179,7 @@ void max30102_read_temp(max30102_t *obj, int8_t *temp_int, uint8_t *temp_frac);
 
 
 void max30102_cal();
-void filter(uint32_t *red_sample,uint32_t *ir_sample);
+void filter(max30102_t *obj, uint32_t *red_sample,uint32_t *ir_sample);
 void buffInsert(uint32_t red,uint32_t ir);
 void calAcDc(uint16_t *rac, uint32_t *rdc, uint16_t *iac, uint32_t *idc);
 

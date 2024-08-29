@@ -1,5 +1,5 @@
 Core/OLED/fonts.o: ../Core/OLED/fonts.c \
- C:/Users/LE\ TUAN\ THANH/STM32CubeIDE/workspace_1.13.1/test_oled/Core/OLED/fonts.h \
+ C:/Users/LE\ TUAN\ THANH/Desktop/doan/project233/firmware_V2/test_oled/Core/OLED/fonts.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
@@ -24,7 +24,7 @@ Core/OLED/fonts.o: ../Core/OLED/fonts.c \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
-C:/Users/LE\ TUAN\ THANH/STM32CubeIDE/workspace_1.13.1/test_oled/Core/OLED/fonts.h:
+C:/Users/LE\ TUAN\ THANH/Desktop/doan/project233/firmware_V2/test_oled/Core/OLED/fonts.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 ../Core/Inc/stm32f1xx_hal_conf.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:

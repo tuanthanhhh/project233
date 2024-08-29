@@ -61,60 +61,20 @@ int __io_putchar(int ch)
 // Override plot function
 
 
-int16_t eachSampleDiff = 0;
+
 void max30102_plot(uint32_t ir_sample, uint32_t red_sample)
 {
     // printf("ir:%u\n", ir_sample);                  // Print IR only
     // printf("r:%u\n", red_sample);                  // Print Red only
     printf("ir:%lu,r:%lu\n", ir_sample, red_sample);    // Print IR and Red
 
-    max30102_sample sampleBuffTemp[5];
-
-    static uint8_t eachBeatSampleCount = 0;    //这次心跳历经了多少个样本
-    static uint8_t lastTenBeatSampleCount[10]; //过去十次心跳每一次的样本数
-    static uint32_t last_iRed = 0;             //上一次红外的值，过滤后的
-    uint8_t i, ii;
-    for (i = 0; i < 32; i++)
-    {
-        if (sampleBuffTemp[i].ir < 40000) //无手指不计算，跳过
-        {
-            heartRate = 0;
-            spo2 = 0;
-            eachSampleDiff = 0;
-            continue;
-        }
-        buffInsert(sampleBuffTemp[i]);
-        calAcDc(&redAC, &redDC, &iRedAC, &iRedDC);
-        filter(&sampleBuffTemp[i]);
-        //计算spo2
-        float R = (((float)(redAC)) / ((float)(redDC))) / (((float)(iRedAC)) / ((float)(iRedDC)));
-        if (R >= 0.36 && R < 0.66)
-            spo2 = (uint8_t)(107 - 20 * R);
-        else if (R >= 0.66 && R < 1)
-            spo2 = (uint8_t)(129.64 - 54 * R);
-        //计算心率,30-250ppm  count:200-12
-        eachSampleDiff = last_iRed - sampleBuffTemp[i].iRed;
-        if (eachSampleDiff > 50 && eachBeatSampleCount > 12)
-        {
-            for (ii = 9; ii > 0; ii--)
-                lastTenBeatSampleCount[i] = lastTenBeatSampleCount[i - 1];
-            lastTenBeatSampleCount[0] = eachBeatSampleCount;
-            uint32_t totalTime = 0;
-            for (ii = 0; ii < 10; ii++)
-                totalTime += lastTenBeatSampleCount[i];
-            heartRate = (uint8_t)(60.0 * 10 / 0.02 / ((float)totalTime));
-            eachBeatSampleCount = 0;
-        }
-        last_iRed = sampleBuffTemp[i].iRed;
-        eachBeatSampleCount++;
-    }
-
 }
 
 max30102_t max30102;
 typedef enum state {NO_FINGER,FINGER} state_t;
 
-
+uint8_t heart_rate;
+uint8_t SpO2_value;
 
 
 /* USER CODE END PV */
@@ -202,6 +162,8 @@ int main(void)
 	    //if (max30102_has_interrupt(&max30102))
 	   // {
 		      max30102_interrupt_handler(&max30102);
+		      heart_rate = max30102_getHeartRate();
+		      SpO2_value = max30102_getSpO2();
 
 		      //HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
 	   // }

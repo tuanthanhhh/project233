@@ -24,7 +24,7 @@ Core/Src/stm32f1xx_it.o: ../Core/Src/stm32f1xx_it.c ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
  ../Core/Inc/stm32f1xx_it.h \
- C:/Users/LE\ TUAN\ THANH/STM32CubeIDE/workspace_1.13.1/test_oled/Core/MAX30102/max30102.h
+ C:/Users/LE\ TUAN\ THANH/Desktop/doan/project233/firmware_V2/test_oled/Core/MAX30102/max30102.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 ../Core/Inc/stm32f1xx_hal_conf.h:
@@ -51,4 +51,4 @@ Core/Src/stm32f1xx_it.o: ../Core/Src/stm32f1xx_it.c ../Core/Inc/main.h \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:
 ../Core/Inc/stm32f1xx_it.h:
-C:/Users/LE\ TUAN\ THANH/STM32CubeIDE/workspace_1.13.1/test_oled/Core/MAX30102/max30102.h:
+C:/Users/LE\ TUAN\ THANH/Desktop/doan/project233/firmware_V2/test_oled/Core/MAX30102/max30102.h:

@@ -12,6 +12,21 @@ extern "C"
  * @param ir_sample
  * @param red_sample
  */
+
+#define FILTER_LEVEL 8
+#define BUFF_SIZE 50
+extern max30102;
+max30102_sample sampleBuff[BUFF_SIZE];
+
+uint8_t heartRate = 0;
+uint8_t spo2 = 0;
+
+uint16_t redAC = 0;
+uint32_t redDC = 0;
+uint16_t iRedAC = 0;
+uint32_t iRedDC = 0;
+int16_t eachSampleDiff = 0;
+
 __weak void max30102_plot(uint32_t ir_sample, uint32_t red_sample)
 {
     UNUSED(ir_sample);
@@ -405,7 +420,7 @@ void max30102_read_fifo(max30102_t *obj)
             }
             buffInsert(ir_sample,red_sample);
             calAcDc(&redAC, &redDC, &iRedAC, &iRedDC);
-            filter(&ir_sample,&red_sample);
+            filter(&max30102,&ir_sample,&red_sample);
 
             float R = (((float)(redAC)) / ((float)(redDC))) / (((float)(iRedAC)) / ((float)(iRedDC)));
             if (R >= 0.36 && R < 0.66)
@@ -413,7 +428,7 @@ void max30102_read_fifo(max30102_t *obj)
             else if (R >= 0.66 && R < 1)
                 spo2 = (uint8_t)(129.64 - 54 * R);
             //计算心率,30-250ppm  count:200-12
-            eachSampleDiff = last_iRed - sampleBuffTemp[i].iRed;
+            eachSampleDiff = last_iRed - ir_sample;
             if (eachSampleDiff > 50 && eachBeatSampleCount > 12)
             {
                 for (ii = 9; ii > 0; ii--)
@@ -425,7 +440,7 @@ void max30102_read_fifo(max30102_t *obj)
                 heartRate = (uint8_t)(60.0 * 10 / 0.02 / ((float)totalTime));
                 eachBeatSampleCount = 0;
             }
-            last_iRed = sampleBuffTemp[i].iRed;
+            last_iRed = ir_sample;
             eachBeatSampleCount++;
         }
     }
@@ -445,30 +460,20 @@ void max30102_read_temp(max30102_t *obj, int8_t *temp_int, uint8_t *temp_frac)
     max30102_read(obj, MAX30102_DIE_TFRAC, temp_frac, 1);
 }
 
-#define FILTER_LEVEL 8
-#define BUFF_SIZE 50
-max30102_sample sampleBuff[BUFF_SIZE];
 
-uint8_t heartRate = 0;
-uint8_t spo2 = 0;
 
-uint16_t redAC = 0;
-uint32_t redDC = 0;
-uint16_t iRedAC = 0;
-uint32_t iRedDC = 0;
-
-void filter(uint32_t *red_sample,uint32_t *ir_sample)
+void filter(max30102_t *obj, uint32_t *red_sample,uint32_t *ir_sample)
 {
     uint8_t i;
     uint32_t red = 0;
     uint32_t ired = 0;
     for (i = 0; i < FILTER_LEVEL - 1; i++)
     {
-        red += max30102._red_samples[i];
-        ired += max30102._ir_samples[i];
+        red += obj->_red_samples[i];
+        ired += obj->_ir_samples[i];
     }
-    *red_sample = (red + red_sample) / FILTER_LEVEL;
-    *ir_sample = (ired + ir_sample) / FILTER_LEVEL;
+    *red_sample = (red + *red_sample) / FILTER_LEVEL;
+    *ir_sample = (ired + *ir_sample) / FILTER_LEVEL;
 }
 
 void buffInsert(uint32_t red,uint32_t ir)
@@ -487,8 +492,8 @@ void calAcDc(uint16_t *rac, uint32_t *rdc, uint16_t *iac, uint32_t *idc)
 {
     uint32_t rMax = sampleBuff[0].red;
     uint32_t rMin = sampleBuff[0].red;
-    uint32_t iMax = sampleBuff[0].iRed;
-    uint32_t iMin = sampleBuff[0].iRed;
+    uint32_t iMax = sampleBuff[0].ir;
+    uint32_t iMin = sampleBuff[0].ir;
 
     uint8_t i;
     for (i = 0; i < BUFF_SIZE; i++)
@@ -498,9 +503,9 @@ void calAcDc(uint16_t *rac, uint32_t *rdc, uint16_t *iac, uint32_t *idc)
         if (sampleBuff[i].red < rMin)
             rMin = sampleBuff[i].red;
         if (sampleBuff[i].ir > iMax)
-            iMax = sampleBuff[i].iRed;
+            iMax = sampleBuff[i].ir;
         if (sampleBuff[i].ir < iMin)
-            iMin = sampleBuff[i].iRed;
+            iMin = sampleBuff[i].ir;
     }
     *rac = rMax - rMin;
     *rdc = (rMax + rMin) / 2;
@@ -508,6 +513,9 @@ void calAcDc(uint16_t *rac, uint32_t *rdc, uint16_t *iac, uint32_t *idc)
     *idc = (iMax + iMin) / 2;
 }
 
+uint8_t max30102_getHeartRate() { return heartRate; }
+uint8_t max30102_getSpO2() { return spo2; }
+int16_t max30102_getDiff() { return eachSampleDiff; }
 
 
 #ifdef __cplusplus
