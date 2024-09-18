@@ -140,7 +140,7 @@ typedef struct max30102_sample
 	uint32_t ir;
 }max30102_sample;
 
-void max30102_plot(uint32_t ir_sample, uint32_t red_sample);
+void max30102_plot(uint32_t ir_sample, uint32_t red_sample,uint32_t heart_Rate, uint32_t SpO2);
 
 void max30102_init(max30102_t *obj, I2C_HandleTypeDef *hi2c);
 void max30102_write(max30102_t *obj, uint8_t reg, uint8_t *buf, uint16_t buflen);
@@ -179,7 +179,7 @@ void max30102_read_temp(max30102_t *obj, int8_t *temp_int, uint8_t *temp_frac);
 
 
 void max30102_cal();
-void filter(max30102_t *obj, uint32_t *red_sample,uint32_t *ir_sample);
+void filter( uint32_t *red_sample,uint32_t *ir_sample);
 void buffInsert(uint32_t red,uint32_t ir);
 void calAcDc(uint16_t *rac, uint32_t *rdc, uint16_t *iac, uint32_t *idc);
 

@@ -62,11 +62,13 @@ int __io_putchar(int ch)
 
 
 
-void max30102_plot(uint32_t ir_sample, uint32_t red_sample)
+void max30102_plot(uint32_t ir_sample, uint32_t red_sample,uint32_t heart_Rate, uint32_t SpO2)
 {
     // printf("ir:%u\n", ir_sample);                  // Print IR only
     // printf("r:%u\n", red_sample);                  // Print Red only
-    printf("ir:%lu,r:%lu\n", ir_sample, red_sample);    // Print IR and Red
+   // printf("ir:%lu,r:%lu\n", ir_sample, red_sample);    // Print IR and Red
+    printf("%d,%d\n",heart_Rate,SpO2);
+    //printf("heart rate:%d \n",heart_Rate);
 
 }
 
@@ -164,6 +166,12 @@ int main(void)
 		      max30102_interrupt_handler(&max30102);
 		      heart_rate = max30102_getHeartRate();
 		      SpO2_value = max30102_getSpO2();
+		      max30102_plot(0, 0, heart_rate, SpO2_value);
+		      SSD1306_Clear();
+		      SSD1306_GotoXY(0, 0);
+		      SSD1306_UpdateScreen();
+		      SSD1306_Println("SpO2 = %d",SpO2_value);
+		      HAL_Delay(1000);
 
 		      //HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
 	   // }

@@ -13,7 +13,7 @@ extern "C"
  * @param red_sample
  */
 
-#define FILTER_LEVEL 8
+#define FILTER_LEVEL 5
 #define BUFF_SIZE 50
 extern max30102;
 max30102_sample sampleBuff[BUFF_SIZE];
@@ -27,10 +27,12 @@ uint16_t iRedAC = 0;
 uint32_t iRedDC = 0;
 int16_t eachSampleDiff = 0;
 
-__weak void max30102_plot(uint32_t ir_sample, uint32_t red_sample)
+__weak void max30102_plot(uint32_t ir_sample, uint32_t red_sample,uint32_t heart_Rate, uint32_t SpO2)
 {
     UNUSED(ir_sample);
     UNUSED(red_sample);
+    UNUSED(heart_Rate);
+    UNUSED(SpO2);
 }
 
 /**
@@ -403,7 +405,7 @@ void max30102_read_fifo(max30102_t *obj)
         uint32_t red_sample = ((uint32_t)(sample[3] << 16) | (uint32_t)(sample[4] << 8) | (uint32_t)(sample[5])) & 0x3ffff;
         obj->_ir_samples[i] = ir_sample;
         obj->_red_samples[i] = red_sample;
-        max30102_plot(ir_sample, red_sample);
+       // max30102_plot(ir_sample, red_sample,heartRate,spo2);
 
         static uint8_t eachBeatSampleCount = 0;    //这次心跳历经了多少个样本
         static uint8_t lastTenBeatSampleCount[10]; //过去十次心跳每一次的样本数
@@ -420,7 +422,7 @@ void max30102_read_fifo(max30102_t *obj)
             }
             buffInsert(ir_sample,red_sample);
             calAcDc(&redAC, &redDC, &iRedAC, &iRedDC);
-            filter(&max30102,&ir_sample,&red_sample);
+            filter(&ir_sample,&red_sample);
 
             float R = (((float)(redAC)) / ((float)(redDC))) / (((float)(iRedAC)) / ((float)(iRedDC)));
             if (R >= 0.36 && R < 0.66)
@@ -462,15 +464,15 @@ void max30102_read_temp(max30102_t *obj, int8_t *temp_int, uint8_t *temp_frac)
 
 
 
-void filter(max30102_t *obj, uint32_t *red_sample,uint32_t *ir_sample)
+void filter( uint32_t *red_sample,uint32_t *ir_sample)
 {
     uint8_t i;
     uint32_t red = 0;
     uint32_t ired = 0;
     for (i = 0; i < FILTER_LEVEL - 1; i++)
     {
-        red += obj->_red_samples[i];
-        ired += obj->_ir_samples[i];
+        red += sampleBuff[i].red;
+        ired += sampleBuff[i].ir;
     }
     *red_sample = (red + *red_sample) / FILTER_LEVEL;
     *ir_sample = (ired + *ir_sample) / FILTER_LEVEL;

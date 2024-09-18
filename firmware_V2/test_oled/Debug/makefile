@@ -62,8 +62,8 @@ all: main-build
 main-build: test_oled.elf secondary-outputs
 
 # Tool invocations
-test_oled.elf test_oled.map: $(OBJS) $(USER_OBJS) C:\Users\LE\ TUAN\ THANH\Desktop\doan\project233\firmware_V2\test_oled\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "test_oled.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\LE TUAN THANH\Desktop\doan\project233\firmware_V2\test_oled\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_oled.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+test_oled.elf test_oled.map: $(OBJS) $(USER_OBJS) C:\Users\LE\ TUAN\ THANH\Desktop\New\ folder\test_v2\project233\firmware_V2\test_oled\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "test_oled.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\LE TUAN THANH\Desktop\New folder\test_v2\project233\firmware_V2\test_oled\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_oled.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

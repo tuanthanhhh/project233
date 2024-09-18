@@ -1,5 +1,5 @@
 Core/OLED/ssd1306.o: ../Core/OLED/ssd1306.c \
- C:/Users/LE\ TUAN\ THANH/Desktop/doan/project233/firmware_V2/test_oled/Core/OLED/ssd1306.h \
+ C:/Users/LE\ TUAN\ THANH/Desktop/New\ folder/test_v2/project233/firmware_V2/test_oled/Core/OLED/ssd1306.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
@@ -24,8 +24,8 @@ Core/OLED/ssd1306.o: ../Core/OLED/ssd1306.c \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
- C:/Users/LE\ TUAN\ THANH/Desktop/doan/project233/firmware_V2/test_oled/Core/OLED/fonts.h
-C:/Users/LE\ TUAN\ THANH/Desktop/doan/project233/firmware_V2/test_oled/Core/OLED/ssd1306.h:
+ C:/Users/LE\ TUAN\ THANH/Desktop/New\ folder/test_v2/project233/firmware_V2/test_oled/Core/OLED/fonts.h
+C:/Users/LE\ TUAN\ THANH/Desktop/New\ folder/test_v2/project233/firmware_V2/test_oled/Core/OLED/ssd1306.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 ../Core/Inc/stm32f1xx_hal_conf.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:
@@ -50,4 +50,4 @@ C:/Users/LE\ TUAN\ THANH/Desktop/doan/project233/firmware_V2/test_oled/Core/OLED
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:
-C:/Users/LE\ TUAN\ THANH/Desktop/doan/project233/firmware_V2/test_oled/Core/OLED/fonts.h:
+C:/Users/LE\ TUAN\ THANH/Desktop/New\ folder/test_v2/project233/firmware_V2/test_oled/Core/OLED/fonts.h:
