@@ -1,0 +1,5 @@
+Added Pin To Net: NetName=VCC1V8 Pin=AMS1-4
+Added Pin To Net: NetName=VCC1V8 Pin=C6-2
+Added Pin To Net: NetName=VCC1V8 Pin=C7-2
+Added Member To Class: ClassName=schematic Member=Component U2 STM32F103xx_LQFP48
+Added Room: Name=schematic
